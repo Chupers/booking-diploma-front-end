@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="hotel-container">
+        <div class="hotel-header">
+            <div class="hotel-type">
+                Hotel
+            </div>
+            <div class="hotel-name">
+                Yubileyni 
+            </div>
+            <div class="star-bar">
+                <mat-icon>star</mat-icon>
+                <mat-icon>star</mat-icon>
+                <mat-icon>star</mat-icon>
+            </div>
+            <div class="feaches-bar">
+                Отличный вариант для 2 человек
+            </div>
+            <div class="book-button">
+                <button mat-button> Забронировать</button>
+            </div>
+        </div>
+        <div class="address-info">
+            <div class="address">
+
+            </div>
+            <div class="show-map-button">
+
+            </div>
+        </div>
+        <div class="hotel-image-corrusel">
+            <div class="hotel-image-corrusel-big-image">
+                <img src="{{pathForBigImage}}" alt="">
+            </div>
+            <div class="hotel-image-corrusel-list">
+                <div class="hotel-image-corrusel-item" *ngFor="let item of images">
+                   <div  class="hotel-image-corrusel-item-div" (click)="changeImagePath(item)">
+                        <img src="{{item}}" alt="">
+                   </div>
+                </div>
+            </div>
+        </div>
+        <mat-tab-group class="hotel-tabs" color ="accent">
+            <mat-tab label="Информация о варианте и стоимости">
+                <div class="info-content">
+                    Отель Willing расположен в Минске, в 18 минутах ходьбы от Белорусского национального художественного музея и 1,6 км Национального академического театра имени Янки Купалы. К услугам гостей номера с бесплатным Wi-Fi, кондиционером и собственной ванной комнатой. Этот 3-звездочный отель находится в Ленинском районе.
+                    <br>
+                    Все номера оснащены телевизором с плоским экраном. Среди удобств письменный стол.
+                    <br>
+                    По утрам подают завтрак «шведский стол».
+                    <br>
+                    В распоряжении гостей бар и бизнес-зона. Сотрудники стойки регистрации говорят на английском и русском языках и предоставят гостям туристическую информацию.
+                    <br>
+                    Белорусский государственный цирк находится в 1,7 км от отеля Willing, а музей Великой Отечественной войны — в 1,9 км. До Национального аэропорта Минска — 30 км.
+                    <br>
+                    Парам особенно нравится расположение — они оценили проживание в этом районе для поездки вдвоем на 9,1.
+                    <br>
+                    Мы говорим на вашем языке!
+                </div>
+            </mat-tab>
+            <mat-tab label = "Удобства и услуги">
+                info
+            </mat-tab>
+            <mat-tab label = "Условия размещения">
+                info
+            </mat-tab>
+            <mat-tab label = "Отзывы гостей">
+                info
+            </mat-tab>
+            
+        </mat-tab-group>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<mat-sidenav-container class="side-nav-bar" *ngIf="isLogin">
+  <mat-sidenav mode="side" opened>
+    <mat-selection-list class="list-item" [multiple]="false">
+      <mat-list-option class="item" role="tab" routerLink="/overview" routerLinkActive="active">
+            <mat-icon mat-list-icon>analytics</mat-icon>
+            <div mat-line class="list-text">Overview</div>
+      </mat-list-option>
+      <mat-list-option class="item" role="tab" routerLink="/calendar" routerLinkActive="active">
+          <mat-icon mat-list-icon>calendar_today</mat-icon>
+          <div mat-line class="list-text">Calendar</div>
+      </mat-list-option>
+      <mat-list-option class="item" role="tab" routerLink="/clients" routerLinkActive="active">
+          <mat-icon mat-list-icon >people</mat-icon>
+          <div mat-line class="list-text">Clients</div>
+      </mat-list-option>  
+      <mat-list-option class="item" role="tab" routerLink="/staff" routerLinkActive="active">
+          <mat-icon mat-list-icon >assignment_in</mat-icon>
+          <div mat-line class="list-text">Staffs</div>
+      </mat-list-option>
+      <mat-list-option role="tab" class="item" >
+            <mat-icon mat-list-icon>folder</mat-icon>
+            <div mat-line class="list-text">item</div>
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<div class="login" *ngIf="!isLogin">
+  <div class="login-form">
+  <h2 class="login-header">Log in</h2>
+  <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
+      <input matInput type="email" placeholder="Email" formControlName="email">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+      <div *ngIf="formControls.email.errors.required">Email is required</div>
+    </div>
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+      <input matInput type="password" placeholder="Password" formControlName="password">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+      <div *ngIf="formControls.password.errors.required">Password is required</div>
+    </div>
+      <input type="submit" value="Log in">
+  </form> 
+</div>
+</div>

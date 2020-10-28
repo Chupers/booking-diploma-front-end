@@ -1,0 +1,47 @@
+/* #05386B – #379683 – #5CDB95 – #8EE4AF – #EDF5E1 */
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 0.5rem;
+}
+.logo{
+    margin: 2rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.navbarContainer{
+    display: inherit;
+    align-items: center;
+}
+.navbaritem{
+    margin: 1.2rem;
+    display: flex;
+    align-items: baseline;
+    cursor: pointer;
+}
+.loginContainer{
+    display: flex;
+    height: 1rem;
+    align-items: baseline;
+    justify-content: center;
+}
+.signUp{
+    font-weight: 500;
+    cursor: pointer;
+}
+.signIn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1rem;
+    color: #FFF;
+    height: 1rem;
+    border-radius: 1rem;
+    margin-left: 1.7rem;
+    margin-right: 1.7rem;
+    cursor: pointer;
+    background: #EC6F66;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F3A183, #EC6F66);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F3A183, #EC6F66); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

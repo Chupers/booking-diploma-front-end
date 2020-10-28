@@ -1,0 +1,123 @@
+.container{
+    display: flex;
+}
+
+.search-container{
+
+}
+
+.search-result-container{
+    display: flex;
+    flex-flow: row;
+}
+
+.hotel-container{
+    
+    width: 50vw;
+    height: 100vh
+}
+.map-container{
+    width: 50vw;
+    height: 100vh;
+    border-radius: 1.5rem;
+}
+
+
+
+.hotel-card{
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    margin: 15px;
+    height: 200px;
+}
+.hotel-card-image{
+    display: flex;
+    flex-direction: column;
+    width:320px;
+}
+.hotel-card-image-background{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.hotel-card-image-background img{
+    width: 110%;
+}
+.hotel-card-image-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 320px;
+    z-index: 3;
+    margin-top: 2rem;
+}
+.hotel-card-sale{
+    background: #e05e22;
+    color:#fff;
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    flex-direction: column;
+    font-size:1.1rem;
+}
+.off{
+    font-size: 0.7rem;
+    margin: 0;
+    padding: 0;
+}
+.hotel-card-like{
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hotel-card-content{
+    display: flex;
+    flex-direction: column;
+    width:50%;
+}
+.hotel-card-content-name-cost-stars-reviews{
+    display: flex;
+    flex-direction: column;
+    margin:1rem 2rem;
+}
+.hotel-card-content-name-cost{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.hotel-card-content-name{
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+.hotel-card-content-cost{
+    font-size: 1.4rem;
+    color: #1768d2;
+}
+.hotel-card-content-stars-reviews{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.hotel-card-content-attributes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.hotel-card-content-characteristic{
+    display: inherit;
+    flex-direction: column;
+    align-items: center;
+}
+.characteristic{
+    display: flex;
+}

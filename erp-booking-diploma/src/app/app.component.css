@@ -1,0 +1,51 @@
+.side-nav-bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+  }
+  .list-item{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100%;
+      
+  }
+  .item{
+    margin-top: 2rem;
+  }
+  mat-icon{
+      color: gray
+  }
+  .list-text{
+      font-weight: bold !important;
+  }
+ 
+  .login{
+      display: flex;
+      align-items:center;
+      justify-content: center;
+  }
+  input{
+    font-size: 1rem;
+    border: none;
+    margin: 0 1rem;
+    outline: none;
+  }
+  .login-form{
+    box-shadow: 0rem 0rem 2rem 0.35rem rgba(0, 0, 0, 0.10);
+    align-items:center;
+    padding: 2rem;
+    justify-content: center;
+    margin-top: 30vh;
+    flex-direction: column;
+    display: flex;
+  }
+  
+  .submit-button{
+
+  }
+  
