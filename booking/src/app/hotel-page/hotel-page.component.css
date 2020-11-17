@@ -70,3 +70,21 @@
     width: 50vw;
     font-size: medium;
 }
+.characteristic-container{
+    margin-left: 10rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    flex-flow: wrap;
+    justify-content: center;
+}
+.characteristic{
+    width: 20vw;
+    margin: 1rem;
+
+}
+mat-tab{
+    display: flex;
+    justify-content: center;
+}
