@@ -13,6 +13,7 @@ export class AppComponent {
   loginForm: FormGroup;
   isSubmitted  =  false;
   isLogin : boolean = false;
+  isSignUp: boolean = false;
   ngOnInit() {
     this.isLogin = this.authService.isLoggedIn()
     console.log(this.isLogin)
@@ -22,6 +23,10 @@ export class AppComponent {
     });
 }
 get formControls() { return this.loginForm.controls; }
+signUp(){
+  this.isSignUp = true;
+  console.log("SING UP")
+}
 login(){
   console.log(this.loginForm.value);
   this.isSubmitted = true;
@@ -29,8 +34,20 @@ login(){
     return;
     console.log("invalid")
   }
-  this.authService.login(this.loginForm.value);
-  this.router.navigateByUrl('');
+  this.authService.login(this.loginForm.controls['email'].value,this.loginForm.controls['password'].value).subscribe(
+    response => {
+      localStorage.setItem("ACCESS_TOKEN",response.headers.get('Authorization'));
+      if(this.authService.isLoggedIn()){
+        this.isLogin = this.authService.isLoggedIn();
+        if(this.isLogin){
+          this.router.navigateByUrl('overview');
+        }
+        location.reload();
+      }
+    }
+  );
+ 
+ 
 }
   title = 'erp-booking-diploma';
 }

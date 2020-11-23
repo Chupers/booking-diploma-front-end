@@ -1,0 +1,59 @@
+<mat-card>
+<mat-horizontal-stepper linear #stepper>
+    <mat-step [stepControl]="loginForm" [editable]="isEditable">
+      <form [formGroup]="loginForm">
+        <ng-template matStepLabel>Fill out your email</ng-template>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="username" placeholder="email" required>
+        </mat-form-field>
+        <ng-template matStepLabel>Fill out your password</ng-template>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" placeholder=""
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill out your info</ng-template>
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="name" placeholder=""
+                 required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Second Name</mat-label>
+            <input matInput formControlName="secondName" placeholder=""
+                   required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone" placeholder=""
+                   required>
+          </mat-form-field>
+        
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+      <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+        <ng-template matStepLabel>Object type</ng-template>
+        
+        <mat-card class="object-type-container">
+            <mat-selection-list #shoes [multiple]="false">
+                <mat-list-option (click)="submit()" >
+                    <mat-icon mat-list-icon>business</mat-icon>
+                    <div mat-line>Hotel</div>
+                </mat-list-option>
+              </mat-selection-list>
+        </mat-card>
+      </mat-step>
+</mat-horizontal-stepper>
+</mat-card>

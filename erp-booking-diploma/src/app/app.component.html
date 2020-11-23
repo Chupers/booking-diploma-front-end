@@ -17,9 +17,9 @@
           <mat-icon mat-list-icon >assignment_in</mat-icon>
           <div mat-line class="list-text">Staffs</div>
       </mat-list-option>
-      <mat-list-option role="tab" class="item" >
-            <mat-icon mat-list-icon>folder</mat-icon>
-            <div mat-line class="list-text">item</div>
+      <mat-list-option role="tab" routerLink="/Accommodation" class="item" >
+            <mat-icon mat-list-icon>business</mat-icon>
+            <div mat-line class="list-text">Accommodation</div>
       </mat-list-option>
     </mat-selection-list>
   </mat-sidenav>
@@ -27,10 +27,10 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
-<div class="login" *ngIf="!isLogin">
+<div class="login" *ngIf="!isLogin && !isSignUp">
   <div class="login-form">
   <h2 class="login-header">Log in</h2>
-  <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
+  <form [formGroup]="loginForm" class="login-container">
 
     <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
       <input matInput type="email" placeholder="Email" formControlName="email">
@@ -47,7 +47,9 @@
     <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
       <div *ngIf="formControls.password.errors.required">Password is required</div>
     </div>
-      <input type="submit" value="Log in">
-  </form> 
+      <button (click)="login()" type="submit" value="Log in">Login</button>
+  </form>
+  <button (click)="signUp()">registr your object</button>
 </div>
 </div>
+<app-sign-up-org *ngIf="isSignUp"></app-sign-up-org>

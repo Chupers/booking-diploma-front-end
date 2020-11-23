@@ -1,0 +1,78 @@
+<mat-card >
+    <mat-card-title>Fill basic info</mat-card-title>
+    <form [formGroup]="hotelBasicInfoGroup" class="container">
+        <mat-form-field>
+            <mat-label> Hotel name</mat-label>
+             <input matInput placeholder="Name" formControlName="hotelName" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> Hotel country</mat-label>
+            <input matInput placeholder="country" formControlName="hotelCountry" required>
+            </mat-form-field>
+        <mat-form-field>
+            <mat-label> Hotel city</mat-label>
+            <input matInput placeholder="city" formControlName="hotelCity" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> Hotel street</mat-label>
+            <input matInput placeholder="street" formControlName="hotelStreet" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <textarea matInput placeholder="Ex. It makes me feel...." formControlName="hotelDescription"></textarea>
+        </mat-form-field>
+    </form>
+    <button mat-button (click)="saveBasic()">Save info</button>
+    <mat-card-title>Create hotel feaches</mat-card-title>
+    <div class="coustome-tree">
+        <button mat-button (click)="addNewNode()">Add Parent +</button>
+        <mat-list>
+           <div class="tree-parent-container" *ngFor="let parent of datasource">
+               <div *ngIf="parent.name !=newEmptyName" >
+                    <div mat-subheader>
+                        {{parent.name}}
+                        <button mat-button (click)="addChild(parent)">+</button>
+                    </div>
+                    
+                    <mat-list-item *ngFor="let child of parent.child">
+                        <mat-icon mat-list-icon>folder</mat-icon>
+                        <!-- <mat-icon mat-list-icon>{{child.iconName}}</mat-icon> -->
+                        <div *ngIf="child.childName != newEmptyName">
+                            <div mat-line>{{child.childName}}</div>
+                        </div>
+                        <div *ngIf="child.childName == newEmptyName">
+                            <mat-form-field>
+                                <mat-label>New item ...</mat-label>
+                                <input matInput #itemValueChild placeholder="Ex. Lettuce">
+                            </mat-form-field>
+                            <button mat-button (click)="saveChild(child,parent.name,itemValueChild.value)">Save</button>
+                        </div>
+                    </mat-list-item>    
+               </div>
+               <div *ngIf="parent.name == newEmptyName">
+                   <mat-form-field>
+                       <mat-label>New item ...</mat-label>
+                       <input matInput #itemValue placeholder="Ex. Lettuce">
+                   </mat-form-field>
+                   <button mat-button (click)="saveNode(itemValue.value)">Save</button>
+               </div>
+               <mat-divider></mat-divider>
+           </div>
+        </mat-list>
+    </div>
+    <mat-card-title>Add hotel Image</mat-card-title>
+    <!-- <input type="file" style="display: none;"
+      (change)="onFileChanged($event)"
+      #fileInput>
+      <button mat-button (click)="fileInput.click()">Select File</button>
+      <button mat-button (click)="onUpload()">Upload</button> -->
+    <form [formGroup]="imageGorup" class="container">
+        <mat-form-field>
+            <mat-label> Hotel image</mat-label>
+             <input matInput placeholder="imageId" formControlName="image" required>
+        </mat-form-field>
+    </form>
+    <button mat-button (click)="saveImage()">Save Image</button>
+
+     
+</mat-card>
