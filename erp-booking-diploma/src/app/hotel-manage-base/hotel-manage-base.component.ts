@@ -81,7 +81,7 @@ export class HotelManageBaseComponent implements OnInit {
   saveChild(node:TreeChildItem,parentNode:String,name:String){
     this.datasource.forEach(element => {
       if(element.name == parentNode){
-        element.child.forEach(child => {
+        element.characteristicChildren.forEach(child => {
           if(child.childName == this.newEmptyName){
             child.childName = name;
           }
@@ -91,10 +91,16 @@ export class HotelManageBaseComponent implements OnInit {
     console.log(this.datasource)
   }
 
+  saveCharacteristic(){
+    this._accService.saveCharacteristic(this.currentId,this.datasource).subscribe(data =>{
+      console.log("saved")
+    })
+  }
+
   addChild(node:TreeDataItem){
     this.datasource.forEach(element => {
       if(element.name == node.name){
-        element.child.push(new TreeChildItem())
+        element.characteristicChildren.push(new TreeChildItem())
       }
     });
    
@@ -103,7 +109,7 @@ export class HotelManageBaseComponent implements OnInit {
 }
 export class TreeDataItem{
   name: String;
-  child?: TreeChildItem[] = [];
+  characteristicChildren?: TreeChildItem[] = [];
 
   constructor(){
     this.name = "";

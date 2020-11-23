@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GlobalRootURL } from '../GlobalRootURL';
+import { TreeDataItem } from '../hotel-manage-base/hotel-manage-base.component';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,11 @@ export class AccommodationService {
 
   loadImage(imageId:String,accommodationId:String): Observable<any>{
     return this._httpClient.put(this.URL+"loadPhotoByIdGoogle?id="+accommodationId+"&photoId="+imageId,null)
+  }
+
+  saveCharacteristic(accommodationId : number, data : TreeDataItem[]) : Observable<any>{
+    let body = data
+    return this._httpClient.post(this.URL+"saveCharacteristic?id="+accommodationId,body);
   }
 
   updateBasicInfo(accommodationName : String,

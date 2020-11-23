@@ -34,7 +34,7 @@
                         <button mat-button (click)="addChild(parent)">+</button>
                     </div>
                     
-                    <mat-list-item *ngFor="let child of parent.child">
+                    <mat-list-item *ngFor="let child of parent.characteristicChildren">
                         <mat-icon mat-list-icon>folder</mat-icon>
                         <!-- <mat-icon mat-list-icon>{{child.iconName}}</mat-icon> -->
                         <div *ngIf="child.childName != newEmptyName">
@@ -58,6 +58,7 @@
                </div>
                <mat-divider></mat-divider>
            </div>
+           <button mat-button (click)="saveCharacteristic()" > Save characteristic</button>
         </mat-list>
     </div>
     <mat-card-title>Add hotel Image</mat-card-title>
