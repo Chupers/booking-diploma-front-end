@@ -7,9 +7,8 @@ import { TestSearchResultComponent } from './test-search-result/test-search-resu
 
 const routes: Routes = [
   { path: '', component: MainPageComponent},
-  { path: 'search', component: SearchResultComponent},
-  {path: 'testsearch',component: TestSearchResultComponent},
-  {path:'hotel',component:HotelPageComponent},
+  {path: 'search/:search',component: TestSearchResultComponent},
+  {path:'hotel/:id',component:HotelPageComponent},
 ];
 
 @NgModule({

@@ -36,34 +36,5 @@
     align-items: center;
     width: 40vw;
 }
-.searchbar input{
-    width: 40vw;
-    font-size: 2rem;
-    border: none;
-    margin: 0 2rem;
-    outline: none;
-}
-@keyframes search-animation{
-    0%{
-        width: 1.5rem;
-        height: 1.5rem;
-    }
-    100%{
-        width: 40vw;
-        height: 2rem;
-    }
-}
-.search-animation{
-    position: absolute;
-    z-index: -1;
-    width: 40vw;
-    animation: 0.5s search-animation;
-    padding: 0.4rem;
-    box-shadow: 0rem 0rem 2rem 0.35rem rgba(0, 0, 0, 0.15);
-    border-radius: 1.5rem;
-    height: 2rem;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
+
 

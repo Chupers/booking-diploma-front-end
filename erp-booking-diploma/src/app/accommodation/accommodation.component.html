@@ -5,7 +5,10 @@
         <button mat-button>Collapse All</button>
     </mat-action-row>
 
-    <mat-list>
-        
-    </mat-list>
+    <mat-selection-list #accommodation [multiple]="false">
+        <mat-list-option *ngFor="let item of accommodations" (click)="goToDetails(item.accommodationId)">
+            {{item.accommodationInfo.accommodationName}}
+            {{item.accommodationInfo.accommodationCountry}}
+        </mat-list-option>
+    </mat-selection-list>
 </mat-card>

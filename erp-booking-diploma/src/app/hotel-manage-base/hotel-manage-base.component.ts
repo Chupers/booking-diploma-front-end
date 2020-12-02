@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { Accommodation } from '../entity/Accommodation';
 import { AccommodationService } from '../services/accommodation.service';
 
 @Component({
@@ -13,14 +14,24 @@ import { AccommodationService } from '../services/accommodation.service';
 export class HotelManageBaseComponent implements OnInit {
 
   hotelBasicInfoGroup: FormGroup;
+  creatorInfoGroup: FormGroup;
   imageGorup:FormGroup;
   newEmptyName: String = "";
   currentId : number;
-
+  accommadation:Accommodation;
   datasource:TreeDataItem[] = []
 
-  constructor(private _formBuilder: FormBuilder,private _accService : AccommodationService,private authService: AuthService,private _route:ActivatedRoute, private router: Router) {
+  constructor(private _formBuilder: FormBuilder,
+    private _accService : AccommodationService,
+    private authService: AuthService,
+    private _route:ActivatedRoute,
+    private router: Router,
+    ) {
     this.currentId = parseInt(this._route.snapshot.paramMap.get('id'))  
+    this._accService.getById(this.currentId).subscribe(response=>{
+      this.accommadation = response;
+      console.log(this.accommadation);
+    })
   }
 
   ngOnInit(): void {
@@ -30,10 +41,24 @@ export class HotelManageBaseComponent implements OnInit {
       hotelCity: ['', Validators.required],
       hotelStreet: ['', Validators.required],
       hotelDescription:['',Validators.required],
+      countStar:['',Validators.required],
   });
+  this.creatorInfoGroup = this._formBuilder.group({
+    name: ['', Validators.required],
+    secondName:['',Validators.required],
+    phone: ['',Validators.required]
+  })
   this.imageGorup = this._formBuilder.group({
     image:['',Validators.required]
   })
+  }
+
+  submit(){
+    this._accService.submitAccommodation(this.currentId).subscribe(
+      data =>{
+        this.router.navigateByUrl('Accommodation');
+      }
+    )
   }
 
   saveBasic(){
@@ -43,6 +68,7 @@ export class HotelManageBaseComponent implements OnInit {
       this.hotelBasicInfoGroup.controls['hotelCity'].value,
       this.hotelBasicInfoGroup.controls['hotelStreet'].value,
       this.hotelBasicInfoGroup.controls['hotelDescription'].value,
+      this.hotelBasicInfoGroup.controls['countStar'].value,
       this.currentId).subscribe(data =>{
         console.log("saved")
       })

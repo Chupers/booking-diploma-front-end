@@ -28,7 +28,9 @@ import {MatTreeModule} from '@angular/material/tree';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/TokenInterceptor';
 import { AccommodationComponent } from './accommodation/accommodation.component';
-import { MatExpansionModule} from '@Angular/material/expansion'
+import { MatExpansionModule} from '@Angular/material/expansion';
+import { AccommodationDetailsComponent } from './accommodation-details/accommodation-details.component'
+import { MatSlider, MatSliderModule} from '@angular/material/slider';
 
 
 @NgModule({
@@ -43,6 +45,7 @@ import { MatExpansionModule} from '@Angular/material/expansion'
     HotelManageComponent,
     HotelManageBaseComponent,
     AccommodationComponent,
+    AccommodationDetailsComponent,
   ],
   imports: [
     HttpClientModule,
@@ -61,6 +64,7 @@ import { MatExpansionModule} from '@Angular/material/expansion'
     MatCardModule,
     MatTreeModule,
     MatExpansionModule,
+    MatSliderModule,
   ],
   providers: [
     {provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true},

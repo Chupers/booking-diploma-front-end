@@ -1,0 +1,33 @@
+<form class="loginForm" [formGroup]="signUpForm">
+    <mat-label>Login</mat-label>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="username" placeholder="email" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput [type]="true ? 'password' : 'text'" formControlName="password" placeholder=""
+             required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput [type]="true ? 'password' : 'text'" formControlName="passwordCheck" placeholder=""
+               required>
+    </mat-form-field>
+    <mat-label>Your info</mat-label>
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input matInput formControlName="name" placeholder="email" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Second name</mat-label>
+      <input matInput formControlName="secondName" placeholder="email" required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone" placeholder="email" required>
+      </mat-form-field>
+
+    
+      <button mat-button (click)="signUp()">Login</button>
+  </form>

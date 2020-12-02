@@ -10,7 +10,7 @@
         <ng-template matStepLabel>Fill out your password</ng-template>
         <mat-form-field>
           <mat-label>Password</mat-label>
-          <input matInput formControlName="password" placeholder=""
+          <input matInput [type]="true ? 'password' : 'text'" formControlName="password" placeholder=""
                  required>
         </mat-form-field>
         <div>
@@ -34,6 +34,11 @@
           <mat-form-field>
             <mat-label>Phone</mat-label>
             <input matInput formControlName="phone" placeholder=""
+                   required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Organization Name</mat-label>
+            <input matInput formControlName="orgName" placeholder=""
                    required>
           </mat-form-field>
         

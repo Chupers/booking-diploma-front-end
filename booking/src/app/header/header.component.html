@@ -12,7 +12,8 @@
         </div>
     </div>
     <div class="loginContainer">
-        <div class="signUp" tabindex="0" role="button">Sign Up</div>
-        <div class="signIn" tabindex="0" role="button">Sign In</div>
+        <div *ngIf="!isLogin" class="signUp" tabindex="0" role="button" (click)="signUp()">Sign Up</div>
+        <div *ngIf="!isLogin" class="signIn" tabindex="0" role="button" (click)="login()">Sign In</div>
+        <div *ngIf="isLogin" class="signIn" tabindex="0" role="button" (click)="logout()">Log Out</div>
     </div>
 </div>

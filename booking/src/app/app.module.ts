@@ -19,6 +19,12 @@ import { TestSearchResultComponent } from './test-search-result/test-search-resu
 import { HotelPageComponent } from './hotel-page/hotel-page.component';
 import { MatButtonModule } from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './service/TokenInterceptor';
+import {MatDialogModule} from '@angular/material/dialog';
+import { LoginDialogComponent } from './dialog/login-dialog/login-dialog.component';
+import { SignUpDialogComponent } from './dialog/sign-up-dialog/sign-up-dialog.component';
+import { ReservationComponent } from './dialog/reservation/reservation.component';
 
 
 @NgModule({
@@ -30,6 +36,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     SearchResultComponent,
     TestSearchResultComponent,
     HotelPageComponent,
+    LoginDialogComponent,
+    SignUpDialogComponent,
+    ReservationComponent,
   ],
   imports: [
     MatCheckboxModule,
@@ -45,8 +54,12 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatInputModule,
     MatButtonModule,
     MatTabsModule,
+    HttpClientModule,
+    MatDialogModule,
   ],
-  providers: [],
+  providers: [
+    {provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

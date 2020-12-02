@@ -8,8 +8,7 @@
                 Yubileyni 
             </div>
             <div class="star-bar">
-                <mat-icon>star</mat-icon>
-                <mat-icon>star</mat-icon>
+                {{accommodation.accommodationInfo.countStar}}
                 <mat-icon>star</mat-icon>
             </div>
             <div class="feaches-bar">
@@ -29,48 +28,34 @@
         </div>
         <div class="hotel-image-corrusel">
             <div class="hotel-image-corrusel-big-image">
-                <img src="{{pathForBigImage}}" alt="">
+                <img src="{{accommodation.imageId ?'https://drive.google.com/uc?export=view&id='+accommodation.imageId :'https://drive.google.com/uc?export=view&id=1jC7zuqnV23XH-AEVlrA9BrQ9RXt_ft_8'}}" alt="">
             </div>
-            <div class="hotel-image-corrusel-list">
+            <!-- <div class="hotel-image-corrusel-list">
                 <div class="hotel-image-corrusel-item" *ngFor="let item of images">
                    <div  class="hotel-image-corrusel-item-div" (click)="changeImagePath(item)">
                         <img src="{{item}}" alt="">
                    </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <mat-tab-group class="hotel-tabs" color ="accent">
             <mat-tab label="Информация о варианте и стоимости">
                 <div class="info-content">
-                    Отель Willing расположен в Минске, в 18 минутах ходьбы от Белорусского национального художественного музея и 1,6 км Национального академического театра имени Янки Купалы. К услугам гостей номера с бесплатным Wi-Fi, кондиционером и собственной ванной комнатой. Этот 3-звездочный отель находится в Ленинском районе.
-                    <br>
-                    Все номера оснащены телевизором с плоским экраном. Среди удобств письменный стол.
-                    <br>
-                    По утрам подают завтрак «шведский стол».
-                    <br>
-                    В распоряжении гостей бар и бизнес-зона. Сотрудники стойки регистрации говорят на английском и русском языках и предоставят гостям туристическую информацию.
-                    <br>
-                    Белорусский государственный цирк находится в 1,7 км от отеля Willing, а музей Великой Отечественной войны — в 1,9 км. До Национального аэропорта Минска — 30 км.
-                    <br>
-                    Парам особенно нравится расположение — они оценили проживание в этом районе для поездки вдвоем на 9,1.
-                    <br>
-                    Мы говорим на вашем языке!
+                   {{accommodation.accommodationInfo.accommodationDesc}}
                 </div>
             </mat-tab>
             <mat-tab label = "Удобства и услуги">
                 <div class="characteristic-container">
-                    <div class="characteristic">
-                        <mat-icon>local_florist</mat-icon>
+                    <div class="characteristic" *ngFor="let item of accommodation.characteristicList">
+                        <!-- <mat-icon>local_florist</mat-icon> -->
                         <div class="characteristic-header">
-                            На свежем воздухе
+                            {{item.name}}
                         </div>
                         <ul>
-                            <li>Терасса</li>
-                            <li>Сад</li>
-                            <li>Садовая мебель</li>
+                            <li *ngFor="let child of item.characteristicChildren">{{child.childName}}</li>
                         </ul>
                     </div>
-                    <div class="characteristic">
+                    <!-- <div class="characteristic">
                         <mat-icon>pets</mat-icon>
                         <div class="characteristic-header">
                             Домашние животные
@@ -201,7 +186,7 @@
                             <li>английский</li>
                             <li>русский</li>
                         </ul>
-                    </div>  
+                    </div>   -->
                 </div>
             </mat-tab>
             <mat-tab label = "Условия размещения">

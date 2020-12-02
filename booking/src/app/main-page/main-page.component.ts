@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-page',
@@ -7,20 +8,18 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-  
-  constructor() {
-  
-  }
-  range = new FormGroup({
-    start: new FormControl(),
-    end: new FormControl()
-  });
-  searchAnimationCheck: boolean
-  ngOnInit(): void {
-    this.searchAnimationCheck = false;
-  }
-  SearchAnim(){
-    this.searchAnimationCheck = !this.searchAnimationCheck
-  }
 
+  searchForm: FormGroup;
+
+  constructor(private _formBuilder: FormBuilder,private _router: Router) {
+    this.searchForm  =  this._formBuilder.group({
+      value: ['', Validators.required],
+  });
+  }
+  search(){
+    this._router.navigate(['/search',this.searchForm.controls["value"].value])
+  }
+  ngOnInit(): void {
+  }
+  
 }

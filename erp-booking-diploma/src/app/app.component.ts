@@ -27,6 +27,10 @@ signUp(){
   this.isSignUp = true;
   console.log("SING UP")
 }
+signOut(){
+  this.authService.logout();
+  location.reload();
+}
 login(){
   console.log(this.loginForm.value);
   this.isSubmitted = true;

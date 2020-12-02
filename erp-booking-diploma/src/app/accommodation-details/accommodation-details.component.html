@@ -1,0 +1,50 @@
+<mat-card>
+    {{accommodation.accommodationInfo.accommodationName}}
+</mat-card>
+<mat-card>
+    <button mat-button (click)="createRoom()">Add room</button>
+    <button mat-button (click)="editAccommodation()">Edit</button>
+    <form [formGroup]="roomGroupControl" class="container">
+        <mat-form-field>
+            <mat-label>Room number</mat-label>
+             <input matInput placeholder="number" formControlName="number" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+             <input matInput placeholder="desc" formControlName="deck" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Price per day</mat-label>
+             <input matInput placeholder="$" formControlName="price" required>
+        </mat-form-field>
+    </form>
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
+    <table mat-table [dataSource] ="dataSource">
+        <ng-container matColumnDef="No">
+            <th mat-header-cell *matHeaderCellDef>No. </th>
+            <td mat-cell *matCellDef="let element">{{element.roomNumber}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef>Type</th>
+            <td mat-cell *matCellDef="let element">{{element.roomDescription}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef>Price</th>
+            <td mat-cell *matCellDef="let element">{{element.roomCost}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns:displayedColumns;"></tr>
+
+        <tr *matNoDataRow>
+            <td colspan="4"> No data matching the filter "{{input.value}}"</td>
+        </tr>
+    </table>
+   
+</mat-card>

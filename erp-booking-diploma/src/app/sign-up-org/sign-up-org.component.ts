@@ -29,8 +29,14 @@ export class SignUpOrgComponent implements OnInit {
           response => {
             localStorage.setItem("ACCESS_TOKEN",response.headers.get('Authorization'));
             if(this.authService.isLoggedIn()){
-              this.router.navigateByUrl('hotelbase');
-              location.reload();
+              this._employerService.createOrganization(this.secondFormGroup.controls['name'].value
+              ,this.secondFormGroup.controls['secondName'].value,
+              this.secondFormGroup.controls['phone'].value,
+              this.secondFormGroup.controls['orgName'].value).subscribe(r => {
+                this.router.navigateByUrl('hotelbase');
+                location.reload();
+              })
+             
             }
           }
         );
@@ -54,7 +60,8 @@ export class SignUpOrgComponent implements OnInit {
     this.secondFormGroup = this._formBuilder.group({
       name: ['', Validators.required],
       secondName: ['', Validators.required],
-      phone: ['', Validators.required]
+      phone: ['', Validators.required],
+      orgName:['',Validators.required]
 
     });
 

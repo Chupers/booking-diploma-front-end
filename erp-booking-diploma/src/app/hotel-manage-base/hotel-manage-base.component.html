@@ -2,24 +2,28 @@
     <mat-card-title>Fill basic info</mat-card-title>
     <form [formGroup]="hotelBasicInfoGroup" class="container">
         <mat-form-field>
-            <mat-label> Hotel name</mat-label>
-             <input matInput placeholder="Name" formControlName="hotelName" required>
+            <mat-label>Name</mat-label>
+             <input matInput placeholder="Name" formControlName="hotelName" required value="accommadation.accommodationInfo.accommodationName">
         </mat-form-field>
         <mat-form-field>
-            <mat-label> Hotel country</mat-label>
+            <mat-label>Hotel country</mat-label>
             <input matInput placeholder="country" formControlName="hotelCountry" required>
             </mat-form-field>
         <mat-form-field>
-            <mat-label> Hotel city</mat-label>
+            <mat-label>Hotel city</mat-label>
             <input matInput placeholder="city" formControlName="hotelCity" required>
         </mat-form-field>
         <mat-form-field>
-            <mat-label> Hotel street</mat-label>
+            <mat-label> Street</mat-label>
             <input matInput placeholder="street" formControlName="hotelStreet" required>
         </mat-form-field>
         <mat-form-field>
-          <mat-label>Description</mat-label>
+          <mat-label> Description</mat-label>
           <textarea matInput placeholder="Ex. It makes me feel...." formControlName="hotelDescription"></textarea>
+        </mat-form-field>
+         <mat-form-field>
+            <mat-label>Count Start</mat-label>
+          <textarea matInput placeholder="count start" formControlName="countStar"></textarea>
         </mat-form-field>
     </form>
     <button mat-button (click)="saveBasic()">Save info</button>
@@ -75,5 +79,8 @@
     </form>
     <button mat-button (click)="saveImage()">Save Image</button>
 
-     
+    <mat-card-title>Creator info</mat-card-title>
+
+
+    <button mat-button (click)="submit()">Submit</button>
 </mat-card>
