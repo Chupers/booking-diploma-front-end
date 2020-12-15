@@ -18,7 +18,14 @@ export class AccommodationService {
   }
 
   loadImage(imageId:String,accommodationId:String): Observable<any>{
-    return this._httpClient.put(this.URL+"loadPhotoByIdGoogle?id="+accommodationId+"&photoId="+imageId,null)
+    return this._httpClient.put(this.URL+"loadPhotoById?id="+accommodationId+"&photoId="+imageId,null)
+  }
+
+  loadImageByFile(file: File ,id : number){
+    const formData = new FormData();
+    formData.append('id',id.toString());
+    formData.append('file',file)
+    return this._httpClient.put(this.URL+"loadPhotoByIdGoogle",formData)
   }
 
   getAccommodation():Observable<Accommodation[]>{

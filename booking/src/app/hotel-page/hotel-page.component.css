@@ -1,11 +1,15 @@
 .container{
     margin-top: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 .hotel-container{
     display: flex;
     flex-direction: column;
     align-items:  center;
+    background-color: #FFF;
+    border-radius: 1.5rem;
 }
 .hotel-header{
     display: flex;

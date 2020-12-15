@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { parse } from 'path';
 import { Accommodation } from '../entity/Accommodation';
@@ -12,6 +12,7 @@ import { SearchServiceService } from '../service/search-service.service';
 })
 export class TestSearchResultComponent implements OnInit {
 
+  searchForm: FormGroup;
   accommodation: Accommodation[];
   currentSearchValue: String;
   constructor(private _router: Router,
@@ -41,9 +42,24 @@ export class TestSearchResultComponent implements OnInit {
     // zoom:'14'
     // });
 
-
+    this.searchForm  =  this._formBuilder.group({
+      value: ['', Validators.required],
+      minPrice:['',Validators.required],
+      maxPrice:['',Validators.required],
+      countStar:['',Validators.required]
+  });
   }
 
+  search(){
+    this._searchService.searchAccommodationByDetailsSearch(
+      this.searchForm.controls['value'].value,
+      this.searchForm.controls['minPrice'].value,
+      this.searchForm.controls['maxPrice'].value,
+      this.searchForm.controls['countStar'].value
+    ).subscribe(response=>{
+      this.accommodation = response;
+    })
+  }
   calculeteAverragePrice(acc:Accommodation) : number{
       var result :number = 0;
       acc.rooms.forEach(room =>{

@@ -1,1 +1,23 @@
-<p>reservation works!</p>
+<mat-card>
+    <form [formGroup]="reservationControlGroup">
+        <mat-form-field>
+            <mat-label>Password Number</mat-label>
+            <input matInput placeholder="number" formControlName="passportNumber">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Check in date</mat-label>
+            <input matInput [matDatepicker]="checkInPicker" formControlName="checkIn">
+            <mat-datepicker-toggle matSuffix [for]="checkInPicker"></mat-datepicker-toggle>
+            <mat-datepicker #checkInPicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Check out date</mat-label>
+            <input matInput [matDatepicker]="checkOutPicker" formControlName="checkOut">
+            <mat-datepicker-toggle matSuffix [for]="checkOutPicker"></mat-datepicker-toggle>
+            <mat-datepicker #checkOutPicker></mat-datepicker>
+        </mat-form-field>
+
+        <button mat-button (click)="reserv()">Reserv this room</button>
+    </form>
+</mat-card>

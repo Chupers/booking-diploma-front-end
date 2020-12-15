@@ -101,7 +101,9 @@ export class HotelManageBaseComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
   onUpload(){
-    //Upload
+    this._accService.loadImageByFile(this.selectedFile,this.currentId).subscribe(data =>{
+      console.log("done");
+    })
   }
   selectedFile : File
   saveChild(node:TreeChildItem,parentNode:String,name:String){

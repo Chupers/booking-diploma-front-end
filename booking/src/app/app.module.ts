@@ -25,6 +25,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { LoginDialogComponent } from './dialog/login-dialog/login-dialog.component';
 import { SignUpDialogComponent } from './dialog/sign-up-dialog/sign-up-dialog.component';
 import { ReservationComponent } from './dialog/reservation/reservation.component';
+import { MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -56,6 +58,8 @@ import { ReservationComponent } from './dialog/reservation/reservation.component
     MatTabsModule,
     HttpClientModule,
     MatDialogModule,
+    MatCardModule,
+    MatListModule,
   ],
   providers: [
     {provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true},

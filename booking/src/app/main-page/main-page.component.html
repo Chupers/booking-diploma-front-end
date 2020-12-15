@@ -1,11 +1,11 @@
 <div class="container">
-    <form class="searchbar" [formGroup]="searchForm">
+    <div class="title">The beaten road is the safest</div>
+    <form class="searchbar search-filter chouse-info-by-hotel"  [formGroup]="searchForm">
         <button mat-button role="button" (click)="search()" tabindex="0">
             <mat-icon>search</mat-icon>
         </button>
-        <mat-form-field>
-            <input matInput formControlName="value" placeholder="Destination" required>
+        <mat-form-field style="width: 70%;">
+            <input matInput formControlName="value" placeholder="Destination">
         </mat-form-field>
     </form>
 </div>
-<app-main-page-content></app-main-page-content>

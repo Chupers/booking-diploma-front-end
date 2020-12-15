@@ -5,22 +5,16 @@
                 Hotel
             </div>
             <div class="hotel-name">
-                Yubileyni 
+                {{accommodation.accommodationInfo.accommodationName}}
             </div>
             <div class="star-bar">
                 {{accommodation.accommodationInfo.countStar}}
                 <mat-icon>star</mat-icon>
             </div>
-            <div class="feaches-bar">
-                Отличный вариант для 2 человек
-            </div>
-            <div class="book-button">
-                <button mat-button> Забронировать</button>
-            </div>
         </div>
         <div class="address-info">
             <div class="address">
-
+                {{accommodation.accommodationInfo.accommodationCountry}}/ {{accommodation.accommodationInfo.accommodationCity}}/ {{accommodation.accommodationInfo.accommodationStreet}}
             </div>
             <div class="show-map-button">
 
@@ -28,15 +22,8 @@
         </div>
         <div class="hotel-image-corrusel">
             <div class="hotel-image-corrusel-big-image">
-                <img src="{{accommodation.imageId ?'https://drive.google.com/uc?export=view&id='+accommodation.imageId :'https://drive.google.com/uc?export=view&id=1jC7zuqnV23XH-AEVlrA9BrQ9RXt_ft_8'}}" alt="">
+                <img src="{{accommodation.imageId}}">
             </div>
-            <!-- <div class="hotel-image-corrusel-list">
-                <div class="hotel-image-corrusel-item" *ngFor="let item of images">
-                   <div  class="hotel-image-corrusel-item-div" (click)="changeImagePath(item)">
-                        <img src="{{item}}" alt="">
-                   </div>
-                </div>
-            </div> -->
         </div>
         <mat-tab-group class="hotel-tabs" color ="accent">
             <mat-tab label="Информация о варианте и стоимости">
@@ -55,138 +42,6 @@
                             <li *ngFor="let child of item.characteristicChildren">{{child.childName}}</li>
                         </ul>
                     </div>
-                    <!-- <div class="characteristic">
-                        <mat-icon>pets</mat-icon>
-                        <div class="characteristic-header">
-                            Домашние животные
-                        </div>
-                        <ul>
-                            <li>Размещение домашних животных допускается</li>
-                        </ul>
-                    </div>
-                    <div class="characteristic">
-                        <mat-icon>sports_tennis</mat-icon>
-                        <div class="characteristic-header">
-                            Спорт и отдых
-                        </div>
-                        <ul>
-                            <li>Вечерняя программа</li>
-                            <li>Ночной клуб/диджей</li>
-                            <li>Анимационный персонал</li>
-                            <li>Маршруты для пеших прогулок</li>
-                        </ul>
-                    </div>
-                    <div class="characteristic">
-                        <mat-icon>restaurant</mat-icon>
-                        <div class="characteristic-header">
-                            Питание и напитки
-                        </div>
-                        <ul>
-                            <li>Шведский стол</li>
-                            <li>Бутылка воды</li>
-                            <li>Вино/шампанское</li>
-                            <li>Печенье или шоколад</li>
-                            <li>Бар</li>
-                            <li>Ресторан</li>
-                            <li>Завтрак в номер</li>
-                        </ul>
-                    </div>
-                    <div class="characteristic">
-                        <mat-icon>signal_wifi_4_bar</mat-icon>
-                        <div class="characteristic-header">
-                            Интернет
-                        </div>
-                        <ul>
-                            <li>Wi-Fi предоставляется на территории всего отеля бесплатно</li>
-                        </ul>
-                    </div>
-                    <div class="characteristic">
-                        <mat-icon>local_parking</mat-icon>
-                        <div class="characteristic-header">
-                            Парковка
-                        </div>
-                        <ul>
-                            <li>Частная парковка на месте предоставляется по цене 25BYN/сутки</li>
-                        </ul>
-                    </div>
-                    <div class="characteristic">
-                        <mat-icon>people</mat-icon>
-                        <div class="characteristic-header">
-                            Стойка регистрации
-                        </div>
-                        <ul>
-                            <li>Индивидуальная регистрация заезда/отъезда</li>
-                            <li>Услуги консьержа</li>
-                            <li>Банкомат на территории отеля</li>
-                            <li>Хранение багажа</li>
-                            <li>Ускоренная регистрация отъезда/заезда</li>
-                            <li>Круглосуточная стойка регистрации</li>
-                        </ul>
-                    </div>
-                    <div class="characteristic">
-                        <mat-icon>cleaning_services</mat-icon>
-                        <div class="characteristic-header">
-                            Услуги уборки
-                        </div>
-                        <ul>
-                            <li>Ежедневня уборка</li>
-                            <li>Пресс для брюк</li>
-                            <li>Услуги по глажению одежды</li>
-                            <li>Химчистка</li>
-                            <li>Прачечная</li>
-                        </ul>
-                    </div>
-                    <div class="characteristic">
-                        <mat-icon>https</mat-icon>
-                        <div class="characteristic-header">
-                            Безопасность
-                        </div>
-                        <ul>
-                            <li>Огнетушители</li>
-                            <li>Датчики дыма</li>
-                            <li>Круглосуточная охрана</li>
-                            <li>Сейф</li>
-                        </ul>
-                    </div>
-                    <div class="characteristic">
-                        <mat-icon>info</mat-icon>
-                        <div class="characteristic-header">
-                            Общие
-                        </div>
-                        <ul>
-                            <li>Миски для домашних животных</li>
-                            <li>Общий лаунж/гостинная с телевизором</li>
-                            <li>Кондиционер</li>
-                            <li>Отопление</li>
-                            <li>Гипоалергенный номер</li>
-                            <li>Прокат автомобилей</li>
-                            <li>Звукоизолированные номера</li>
-                            <li>Лифт</li>
-                            <li>Люкс для новобрачных</li>
-                            <li></li>
-                        </ul>
-                    </div>
-                    <div class="characteristic">
-                        <mat-icon>accessible</mat-icon>
-                        <div class="characteristic-header">
-                            Доступность
-                        </div>
-                        <ul>
-                            <li>Низкая раковина</li>
-                            <li>Туалет с поручнями</li>
-                            <li>Подходит для гостей в инвалидных креслах</li>
-                        </ul>
-                    </div>
-                    <div class="characteristic">
-                        <mat-icon>language</mat-icon>
-                        <div class="characteristic-header">
-                            Персонал говорит на этих языках
-                        </div>
-                        <ul>
-                            <li>английский</li>
-                            <li>русский</li>
-                        </ul>
-                    </div>   -->
                 </div>
             </mat-tab>
             <mat-tab label = "Условия размещения">
@@ -201,18 +56,6 @@
                             <li>Отъезд: до 12:00</li>
                         </ul>
                     </div>
-                        <div class="stayterms-container">
-                        <div class="stayterms">
-                            <mat-icon>turned_in</mat-icon>
-                            <div class="stayterms-header">
-                                Условия размещения: общая информация
-                            </div>
-                            <ul>
-                                <li>Отель Yubileyni принимает особые пожелания клиентов касательно времени заезда/отъезда</li>
-                                <li>При регистрации заезда необходимо предъявить удостоверение личности с фотографией и кредитную карту</li>
-                            </ul>
-                        </div>
-                </div>
                 </div>
             </mat-tab>
             <mat-tab label = "Отзывы гостей">
@@ -220,5 +63,15 @@
             </mat-tab>
             
         </mat-tab-group>
+        <mat-card>
+            <mat-list>
+                <mat-list-item *ngFor="let item of accommodation.rooms">
+                    <div>
+                        {{item.roomDescription}}  {{item.roomCost}}$
+                    </div>
+                    <button mat-button (click)="reservRoom(item.id)">reserv this room</button>
+                </mat-list-item>
+            </mat-list>
+        </mat-card>
     </div>
 </div>
